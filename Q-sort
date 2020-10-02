@@ -1,0 +1,27 @@
+One-Liner #2: Write the Quicksort Algorithm
+If you don’t know the quicksort algorithm, have a look at this video:
+
+
+Now, let’s create a one-liner that runs this algorithm!
+
+# THE DATA
+unsorted = [33,2,3,45,6,54]
+# THE ONE-LINER
+qsort = lambda L: [] if L==[] else qsort([x for x in L[1:] if x< L[0]]) + L[0:1] + qsort([x for x in L[1:] if x>=L[0]])
+# THE RESULT
+print(qsort(unsorted))
+# [2, 3, 6, 33, 45, 54]
+The first thing the Quicksort algorithm (source) does is select a pivot element. In our code, it selects the first element, L[0], as the pivot. Then, the algorithm moves all elements smaller than the pivot to the left side. And it moves all elements larger or equal to the pivot to the right side. This is repeated recursively for the left and the right lists.
+
+Let’s suppose you create a new list as follows. You put all elements that are smaller than the pivot to the left, the pivot in the center, and all elements that are larger or equal to the pivot to the right. You would consider the resulting list to be a bit more sorted, right? If the two sublists were already sorted, you would be finished. This is where the recursive call of qsort comes into play. It takes over the problem of sorting each sublist by applying the same scheme of pivoting and recursion as above.
+
+Here is the one-liner written in pseudo-code to make it easier to understand:
+
+if L == []:
+    return []
+else:      # Move all elements less than L[0] to the start
+    return qsort([x for x in L[1:] if x < L[0]]) \
+             # Put L[0] after all elements smaller than it
+           + L[0:1] \
+           # Move all elements greater than L[0] after L[0]
+           + qsort([x for x in L[1:] if x >= L[0]])
