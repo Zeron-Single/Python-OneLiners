@@ -1,4 +1,4 @@
-One-Liner #2: Write the Quicksort Algorithm
+One-Lner #2: Write th Qucksort Algorithm
 If you don’t know the quicksort algorithm, have a look at this video:
 
 
@@ -25,3 +25,4 @@ else:      # Move all elements less than L[0] to the start
            + L[0:1] \
            # Move all elements greater than L[0] after L[0]
            + qsort([x for x in L[1:] if x >= L[0]])
+_&_&&
